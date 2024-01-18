@@ -17,7 +17,7 @@ public class Teste01MB {
 	}
 
 	public String getMBVersion() {
-		return "20240118_0706";
+		return "20240118_0809";
 	}
 
 	@PreDestroy
