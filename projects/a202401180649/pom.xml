@@ -55,6 +55,13 @@
 		</dependency>
 <!--/to run course Sistemas Comerciais Java EE com CDI, JPA e PrimeFaces-->
 
+		<dependency>
+		    <groupId>org.primefaces.extensions</groupId>
+		    <artifactId>all-themes</artifactId>
+		    <version>1.0.8</version>
+		    <type>pom</type>
+		</dependency>
+
   </dependencies>
 
 <!--to run course Sistemas Comerciais Java EE com CDI, JPA e PrimeFaces-->
