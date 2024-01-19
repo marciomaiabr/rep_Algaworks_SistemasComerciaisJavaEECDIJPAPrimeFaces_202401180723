@@ -15,6 +15,9 @@
 			<p:panelGrid columns="2">
 
 				<p:outputLabel value="Nome:" for="nome" />
+				<p:inputText id="nome" value="#{teste01MB.nome}" >
+					<p:ajax listener="#{teste01MB.inverter}" update="nomeInvertido" event="keyup" />
+				</p:inputText>
 				<p:inputText id="nome" value="#{teste01MB.nome}" />
 
 			</p:panelGrid>
