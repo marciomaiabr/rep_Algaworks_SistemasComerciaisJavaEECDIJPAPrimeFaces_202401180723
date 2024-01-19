@@ -21,7 +21,8 @@ public class Teste01MB {
 	}
 
 	private String nome;
-	private String email;
+	private String nomeInvertido;
+	private int quantidadePalavras;
 
 	public String getNome() {
 		return nome;
@@ -31,17 +32,34 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getNomeInvertido() {
+		return nomeInvertido;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public int getQuantidadePalavras() {
+		return quantidadePalavras;
 	}
 
-	public void cadastrar() {
-		System.out.println("Teste01MB.cadastrar()");
-		System.out.println("[this.nome="+this.nome+"][this.email="+this.email+"]");
+	public void inverter() {
+		System.out.println("Teste01MB.inverter()");
+
+		this.nomeInvertido = "";
+		this.quantidadePalavras = 0;
+
+		if (this.nome != null && !this.nome.isEmpty()) {
+			this.quantidadePalavras = 1;
+		}
+
+		for (int i = this.nome.length() - 1; i >= 0; i--) {
+			char letra = this.nome.charAt(i);
+			this.nomeInvertido += letra;
+
+			if (letra == ' ')
+				this.quantidadePalavras++;
+
+		}
+
+		System.out.println("[this.nomeInvertido=" + this.nomeInvertido + "]");
 	}
 
 	@PreDestroy

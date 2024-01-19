@@ -7,40 +7,25 @@
 >
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>JSF 2.2</title>
+		<title>JSF 2.2 with PrimeFaces</title>
 	</h:head>
-<!--
-	ver em "Data de nascimento"
-		Em alguns componentes h:outputLabel não dá o foco no atributo de entrada respectivo
-			como em p:inputText mesmo com a propriedade for
--->
 	<h:body>
 		<h:form>
 
-			<p:messages />
-
 			<p:panelGrid columns="2">
 
-				<f:facet name="header">Cadastro de pessoas</f:facet>
-
-				<h:outputLabel value="Nome:" for="nome" />
-				<p:inputText id="nome" required="true" label="campo Nome" value="#{teste01MB.nome}" />
-
-				<p:outputLabel value="E-mail:" for="email" />
-				<p:inputText id="email" required="true" value="#{teste01MB.email}" />
-
-				<h:outputLabel value="Data de nascimento:" for="dataNascimento" />
-				<p:calendar id="dataNascimento" required="true" />
-
-				<p:outputLabel value="Data de validade" for="dataValidade" />
-				<p:calendar id="dataValidade" required="true" />
-
-				<f:facet name="footer">
-					<!--Icons in https://jqueryui.com/themeroller/-->
-					<p:commandButton value="Cadastrar" ajax="false" icon="ui-icon-disk" iconPos="rigth" action="#{teste01MB.cadastrar}" />
-				</f:facet>
+				<p:outputLabel value="Nome:" for="nome" />
+				<p:inputText id="nome" value="#{teste01MB.nome}" />
 
 			</p:panelGrid>
+
+			<br />
+			
+			<h:outputText value="#{teste01MB.nomeInvertido}" id="nomeInvertido" />
+			
+			<br /><br />
+			
+			<p:commandButton value="Inverter..." action="#{teste01MB.inverter}" ajax="false" />
 
 		</h:form>
 	</h:body>
