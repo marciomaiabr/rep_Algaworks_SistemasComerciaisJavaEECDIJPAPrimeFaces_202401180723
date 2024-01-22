@@ -55,6 +55,12 @@ public class Teste01MB {
 		System.out.println("Teste01MB.verificarDisponibilidadeLogin()");
 		System.out.println("[this.nome="+this.nome+"]");
 		
+		try {
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		FacesMessage msg = null;
 		
 		if("joao".equalsIgnoreCase(this.login)) {
