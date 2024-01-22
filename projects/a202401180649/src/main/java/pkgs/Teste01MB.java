@@ -64,6 +64,10 @@ public class Teste01MB {
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
+	public void teste() {
+		System.out.println("Teste01MB.teste()");
+	}
+
 	@PreDestroy
 	public void preDestroy() {
 		System.out.println("Teste01MB.preDestroy()");
