@@ -4,9 +4,11 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
+@ViewScoped
 public class Teste01MB {
 
 	public Teste01MB() {
@@ -51,6 +53,7 @@ public class Teste01MB {
 
 	public void verificarDisponibilidadeLogin() {
 		System.out.println("Teste01MB.verificarDisponibilidadeLogin()");
+		System.out.println("[this.nome="+this.nome+"]");
 		
 		FacesMessage msg = null;
 		
