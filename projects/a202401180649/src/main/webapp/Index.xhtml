@@ -18,13 +18,12 @@
 			<p:panelGrid columns="2" id="panelGrid1">
 
 				<p:outputLabel value="Login:" for="login" />
-				<h:panelGroup id="panelGroup1">
-					<p:inputText id="login" value="#{teste01MB.login}" required="true" />
-					<p:commandButton value="Verificar Disponibilidade..."
-						action="#{teste01MB.verificarDisponibilidadeLogin}"
-						process="login @this"
+				<p:inputText id="login" value="#{teste01MB.login}" required="true" >
+					<p:ajax
+						listener="#{teste01MB.verificarDisponibilidadeLogin}"
+						event="change" process="@this"
 					/>
-				</h:panelGroup>
+				</p:inputText>
 
 				<p:outputLabel value="Nome:" for="nome" />
 				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
