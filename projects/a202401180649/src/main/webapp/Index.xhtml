@@ -23,7 +23,7 @@
 				<p:inputText id="login" value="#{teste01MB.login}" required="true" >
 					<p:ajax
 						listener="#{teste01MB.verificarDisponibilidadeLogin}"
-						event="change" process="@this"
+						event="change" process="@this" partialSubmit="true"
 					/>
 				</p:inputText>
 
