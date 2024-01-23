@@ -24,12 +24,16 @@
 				<p:outputLabel value="Nome:" for="nome" />
 				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
 
-				<p:outputLabel value="Profissão:" for="profissao" />
-				<p:selectOneMenu id="profissao" value="#{teste01MB.profissao}" required="true" >
-					<f:selectItem itemLabel="Estudante" itemValue="1" />
-					<f:selectItem itemLabel="Empresário" itemValue="2" />
-					<f:selectItem itemLabel="Programador" itemValue="3" />
-					<f:selectItem itemLabel="Outras" itemValue="4" />
+				<p:outputLabel value="Estado:" for="estado" />
+				<p:selectOneMenu id="estado" value="#{teste01MB.estado}" required="true" >
+					<p:ajax process="@this" update="cidade" listener="#{teste01MB.carregarCidades}" />
+					<f:selectItems value="#{teste01MB.estados}" var="e" itemLabel="#{e}" itemValue="#{e}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Cidade:" for="cidade" />
+				<p:selectOneMenu id="cidade" value="#{teste01MB.cidade}" required="true" >
+					<f:selectItem itemLabel="Selecione uma cidade..." />
+					<f:selectItems value="#{teste01MB.cidades}" var="c" itemLabel="#{c}" itemValue="#{c}" />
 				</p:selectOneMenu>
 
 			</p:panelGrid>

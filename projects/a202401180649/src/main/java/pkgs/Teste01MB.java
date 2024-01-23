@@ -1,5 +1,8 @@
 package pkgs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
@@ -11,8 +14,33 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class Teste01MB {
 
+	private List<String> estados = new ArrayList<>();
+	private List<String> cidades = new ArrayList<>();
+
 	public Teste01MB() {
 		System.out.println("Teste01MB.Teste01MB()");
+		estados.add("MG");
+		estados.add("SP");
+		estados.add("RJ");
+	}
+
+	public void carregarCidades() {
+		System.out.println("Teste01MB.carregarCidades()");
+
+		cidades.clear();
+
+		if ("MG".equals(this.estado)) {
+			this.cidades.add("Belo");
+			this.cidades.add("Beraba");
+			this.cidades.add("Berlandia");
+		} else if ("SP".equals(this.estado)) {
+			this.cidades.add("Santos");
+			this.cidades.add("Guarulhos");
+			this.cidades.add("Diadema");
+		} else if ("RJ".equals(this.estado)) {
+			this.cidades.add("Rio");
+			this.cidades.add("Niteroi");
+		}
 	}
 
 	@PostConstruct
@@ -25,7 +53,8 @@ public class Teste01MB {
 	}
 
 	private String nome;
-	private String profissao;
+	private String estado;
+	private String cidade;
 
 	public String getNome() {
 		return nome;
@@ -35,17 +64,33 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
-	public String getProfissao() {
-		return profissao;
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public List<String> getEstados() {
+		return estados;
+	}
+
+	public List<String> getCidades() {
+		return cidades;
 	}
 
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "][this.profissao=" + this.profissao + "]");
+		System.out.println("[this.nome=" + this.nome + "][this.estado=" + this.estado + "][this.cidade=" + this.cidade + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
 	}
