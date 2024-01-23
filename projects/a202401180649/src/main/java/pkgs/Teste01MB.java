@@ -1,9 +1,5 @@
 package pkgs;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
@@ -14,15 +10,6 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @ViewScoped
 public class Teste01MB {
-
-	public static final List<Interesse> INTERESSES = new ArrayList<>();
-	static {
-		System.out.println("Teste01MB.enclosing_method()");
-		INTERESSES.add(new Interesse("Esportes","esportes"));
-		INTERESSES.add(new Interesse("Computação","computacao"));
-		INTERESSES.add(new Interesse("Cinema","cinema"));
-		INTERESSES.add(new Interesse("Leitura","leitura"));
-	}
 
 	public Teste01MB() {
 		System.out.println("Teste01MB.Teste01MB()");
@@ -38,8 +25,6 @@ public class Teste01MB {
 	}
 
 	private String nome;
-	private String profissao;
-	private Interesse interesse;
 
 	public String getNome() {
 		return nome;
@@ -49,32 +34,11 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
-	public String getProfissao() {
-		return profissao;
-	}
-
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
-	}
-
-	public Interesse getInteresse() {
-		return interesse;
-	}
-
-	public void setInteresse(Interesse interesse) {
-		this.interesse = interesse;
-	}
-
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "][this.profissao=" + this.profissao + "][this.interesse=" + this.interesse + "]");
+		System.out.println("[this.nome=" + this.nome + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
-	}
-
-	public List<Interesse> getInteresses(){
-		System.out.println("Teste01MB.getInteresses()");
-		return INTERESSES;
 	}
 
 	@PreDestroy
