@@ -10,6 +10,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>JSF 2.2</title>
 
+<script>
+	<!--
+		https://code.google.com/archive/p/primefaces/wikis/PrimeFacesLocales.wiki
+		Brazilian Portuguese
+	-->
+	PrimeFaces.locales['pt'] = {
+		closeText: 'Fechar', prevText: 'Anterior', nextText: 'Próximo', currentText: 'Começo', monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'], monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'], dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'], dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'], dayNamesMin: ['D','S','T','Q','Q','S','S'], weekHeader: 'Semana', firstDay: 0, isRTL: false, showMonthAfterYear: false, yearSuffix: '', timeOnlyTitle: 'Só Horas', timeText: 'Tempo', hourText: 'Hora', minuteText: 'Minuto', secondText: 'Segundo', ampm: false, month: 'Mês', week: 'Semana', day: 'Dia', allDayText : 'Todo o Dia'
+	};
+</script>
+
 	</h:head>
 	<h:body>
 
@@ -25,7 +35,20 @@
 				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
 
 				<p:outputLabel value="Data de Nascimento:" for="dataNascimento" />
-				<p:calendar id="dataNascimento" value="#{teste01MB.dataNascimento}" required="true" pattern="dd-MM-yyyy HH:mm:ss" />
+				<p:calendar id="dataNascimento" value="#{teste01MB.dataNascimento}" required="true"
+					pattern="dd-MM-yyyy"
+					readonlyInput="true"
+					navigator="true"
+					pages="1"
+					mode="inline"
+					maxdate="#{teste01MB.dataHoje}"
+					locale="pt"
+				/>
+
+				<p:outputLabel value="Data de Nascimento:" for="dataNascimento2" />
+				<p:calendar id="dataNascimento2" value="#{teste01MB.dataNascimento}" required="true"
+					maxdate="#{teste01MB.dataHoje}"
+				/>
 
 			</p:panelGrid>
 

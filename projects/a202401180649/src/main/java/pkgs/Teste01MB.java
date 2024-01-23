@@ -54,6 +54,10 @@ public class Teste01MB {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
 	}
 
+	public Date getDataHoje() {
+		return new Date();
+	}
+
 	@PreDestroy
 	public void preDestroy() {
 		System.out.println("Teste01MB.preDestroy()");
