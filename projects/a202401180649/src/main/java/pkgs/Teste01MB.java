@@ -1,6 +1,7 @@
 package pkgs;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -28,7 +29,7 @@ public class Teste01MB {
 	}
 
 	private String nome;
-	private String sobre;
+	private Date dataNascimento;
 
 	public String getNome() {
 		return nome;
@@ -38,32 +39,17 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
-	public String getSobre() {
-		return sobre;
+	public Date getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setSobre(String sobre) {
-		this.sobre = sobre;
-	}
-
-	public List<String> completarTexto(String consulta){
-		System.out.println("Teste01MB.completarTexto()");
-		System.out.println("[consulta="+consulta+"]");
-		List<String> resultado = new ArrayList<>();
-		
-		if(consulta.toUpperCase().startsWith("MA")) {
-			resultado.add("Marcio");
-			resultado.add("Marcio Maia");
-			resultado.add("Marcio Luis B. Maia");
-			resultado.add("Marcio Luis Borges Maia");
-		}
-		
-		return resultado;
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "][this.sobre=" + this.sobre + "]");
+		System.out.println("[this.nome=" + this.nome + "][this.dataNascimento=" + this.dataNascimento + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
 	}
