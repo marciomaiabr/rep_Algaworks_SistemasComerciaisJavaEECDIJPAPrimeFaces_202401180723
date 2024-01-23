@@ -1,5 +1,8 @@
 package pkgs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
@@ -24,28 +27,43 @@ public class Teste01MB {
 		return "20240118_0809";
 	}
 
-	private String login;
-	private String senha;
+	private String nome;
+	private String sobre;
 
-	public String getLogin() {
-		return login;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getSenha() {
-		return senha;
+	public String getSobre() {
+		return sobre;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setSobre(String sobre) {
+		this.sobre = sobre;
+	}
+
+	public List<String> completarTexto(String consulta){
+		System.out.println("Teste01MB.completarTexto()");
+		System.out.println("[consulta="+consulta+"]");
+		List<String> resultado = new ArrayList<>();
+		
+		if(consulta.toUpperCase().startsWith("MA")) {
+			resultado.add("Marcio");
+			resultado.add("Marcio Maia");
+			resultado.add("Marcio Luis B. Maia");
+			resultado.add("Marcio Luis Borges Maia");
+		}
+		
+		return resultado;
 	}
 
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.login=" + this.login + "][this.senha=" + this.senha + "]");
+		System.out.println("[this.nome=" + this.nome + "][this.sobre=" + this.sobre + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
 	}
