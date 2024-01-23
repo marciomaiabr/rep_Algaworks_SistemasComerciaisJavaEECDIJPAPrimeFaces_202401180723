@@ -15,31 +15,29 @@
 
 		<h:form id="frm">
 
-			<p:ajaxStatus
-				onstart="$('input').css('background-color', 'yellow')"
-				oncomplete="$('input').css('background-color', '')"
-			/>
-
-			<p:messages autoUpdate="true" >
-				<p:autoUpdate/>
+			<p:messages >
+				<p:autoUpdate />
 			</p:messages>
 
-			<p:panelGrid columns="2" id="panelGrid1">
+			<p:panelGrid columns="2" >
 
 				<p:outputLabel value="Login:" for="login" />
-				<p:inputText id="login" value="#{teste01MB.login}" required="true" >
-					<p:ajax
-						listener="#{teste01MB.verificarDisponibilidadeLogin}"
-						event="change" process="@this"
-					/>
-				</p:inputText>
+				<p:inputText id="login" value="#{teste01MB.login}" required="true" />
 
-				<p:outputLabel value="Nome:" for="nome" />
-				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
+				<p:outputLabel value="Senha:" for="senha" />
+				<p:password id="senha" value="#{teste01MB.senha}" required="true"
+					feedback="true" inline="false"
+					weakLabel="Fraca..." goodLabel="Boa..." strongLabel="Forte..." promptLabel="Informe a senha..."
+					match="confirmeSenha" 
+				/>
+
+				<p:outputLabel value="Confirme a Senha:" for="confirmeSenha" />
+				<p:password id="confirmeSenha" required="true" 
+				/>
 
 			</p:panelGrid>
 
-			<p><p:commandButton value="Cadastrar..." action="#{teste01MB.cadastrar}" /></p>
+			<p><p:commandButton value="Atualizar..." action="#{teste01MB.atualizar}" update="@form" /></p>
 
 		</h:form>
 	</h:body>

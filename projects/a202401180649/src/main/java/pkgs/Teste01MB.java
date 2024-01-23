@@ -25,6 +25,7 @@ public class Teste01MB {
 	}
 
 	private String login;
+	private String senha;
 
 	public String getLogin() {
 		return login;
@@ -34,43 +35,19 @@ public class Teste01MB {
 		this.login = login;
 	}
 
-	private String nome;
-
-	public String getNome() {
-		return nome;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
-	public void cadastrar() {
-		System.out.println("Teste01MB.cadastrar()");
-		System.out.println("[this.login="+this.login+"][this.nome="+this.nome+"]");
-		
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastro efetuado !"));
-	}
+	public void atualizar() {
+		System.out.println("Teste01MB.atualizar()");
+		System.out.println("[this.login=" + this.login + "][this.senha=" + this.senha + "]");
 
-	public void verificarDisponibilidadeLogin() {
-		System.out.println("Teste01MB.verificarDisponibilidadeLogin()");
-		System.out.println("[this.nome="+this.nome+"]");
-		
-		try {
-			Thread.sleep(3000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		FacesMessage msg = null;
-		
-		if("joao".equalsIgnoreCase(this.login)) {
-			msg = new FacesMessage("Login \""+this.login+"\" já em uso");
-			msg.setSeverity(FacesMessage.SEVERITY_WARN);
-		} else {
-			msg = new FacesMessage("Login \""+this.login+"\" disponível");
-		}
-		
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
 	}
 
 	@PreDestroy
