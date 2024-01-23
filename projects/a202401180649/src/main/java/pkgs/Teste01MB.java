@@ -25,6 +25,7 @@ public class Teste01MB {
 	}
 
 	private String nome;
+	private String profissao;
 
 	public String getNome() {
 		return nome;
@@ -34,9 +35,17 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
+	public String getProfissao() {
+		return profissao;
+	}
+
+	public void setProfissao(String profissao) {
+		this.profissao = profissao;
+	}
+
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "]");
+		System.out.println("[this.nome=" + this.nome + "][this.profissao=" + this.profissao + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
 	}

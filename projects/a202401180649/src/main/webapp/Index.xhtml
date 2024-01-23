@@ -24,6 +24,14 @@
 				<p:outputLabel value="Nome:" for="nome" />
 				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
 
+				<p:outputLabel value="Profissão:" for="profissao" />
+				<p:selectOneMenu id="profissao" value="#{teste01MB.profissao}" required="true" >
+					<f:selectItem itemLabel="Estudante" itemValue="1" />
+					<f:selectItem itemLabel="Empresário" itemValue="2" />
+					<f:selectItem itemLabel="Programador" itemValue="3" />
+					<f:selectItem itemLabel="Outras" itemValue="4" />
+				</p:selectOneMenu>
+
 			</p:panelGrid>
 
 			<p><p:commandButton value="Atualizar..." action="#{teste01MB.atualizar}" update="@form" /></p>
