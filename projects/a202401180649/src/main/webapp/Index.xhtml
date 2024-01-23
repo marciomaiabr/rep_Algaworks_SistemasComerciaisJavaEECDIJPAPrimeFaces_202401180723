@@ -10,16 +10,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>JSF 2.2</title>
 
-<script>
-	<!--
-		https://code.google.com/archive/p/primefaces/wikis/PrimeFacesLocales.wiki
-		Brazilian Portuguese
-	-->
-	PrimeFaces.locales['pt'] = {
-		closeText: 'Fechar', prevText: 'Anterior', nextText: 'Próximo', currentText: 'Começo', monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'], monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'], dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'], dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'], dayNamesMin: ['D','S','T','Q','Q','S','S'], weekHeader: 'Semana', firstDay: 0, isRTL: false, showMonthAfterYear: false, yearSuffix: '', timeOnlyTitle: 'Só Horas', timeText: 'Tempo', hourText: 'Hora', minuteText: 'Minuto', secondText: 'Segundo', ampm: false, month: 'Mês', week: 'Semana', day: 'Dia', allDayText : 'Todo o Dia'
-	};
-</script>
-
 	</h:head>
 	<h:body>
 
@@ -34,21 +24,31 @@
 				<p:outputLabel value="Nome:" for="nome" />
 				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
 
-				<p:outputLabel value="Data de Nascimento:" for="dataNascimento" />
-				<p:calendar id="dataNascimento" value="#{teste01MB.dataNascimento}" required="true"
-					pattern="dd-MM-yyyy"
-					readonlyInput="true"
-					navigator="true"
-					pages="1"
-					mode="inline"
-					maxdate="#{teste01MB.dataHoje}"
-					locale="pt"
-				/>
+				<p:outputLabel value="Profissão:" for="profissao" />
+				<p:selectOneListbox id="profissao" value="#{teste01MB.profissao}" required="true" >
+					<f:selectItem noSelectionOption="true" itemLabel="Selecione um" itemValue="0" />
+					<f:selectItem itemLabel="Estudante" itemValue="1" />
+					<f:selectItem itemLabel="Empresário" itemValue="2" />
+					<f:selectItem itemLabel="Programador" itemValue="3" />
+					<f:selectItem itemLabel="Outras" itemValue="4" />
+				</p:selectOneListbox>
 
-				<p:outputLabel value="Data de Nascimento:" for="dataNascimento2" />
-				<p:calendar id="dataNascimento2" value="#{teste01MB.dataNascimento}" required="true"
-					maxdate="#{teste01MB.dataHoje}"
-				/>
+				<p:outputLabel value="Interesse:" for="interesse" />
+				<p:selectOneListbox id="interesse"
+					value="#{teste01MB.interesse}" required="true" var="selectOneListbox_interesse" converter="mmConverterInteresse"
+					style="width: 200px"
+				>
+					<f:selectItems
+						value="#{teste01MB.interesses}" var="selectItems_interesse"
+						itemLabel="#{selectItems_interesse.descricao}" itemValue="#{selectItems_interesse}"
+					/>
+					<p:column >
+						<h:graphicImage library="imagens" name="#{selectOneListbox_interesse.nomeIcone}.jpg" />
+					</p:column>
+					<p:column >
+						<h:outputText value="#{selectOneListbox_interesse.descricao}" />
+					</p:column>
+				</p:selectOneListbox>
 
 			</p:panelGrid>
 
