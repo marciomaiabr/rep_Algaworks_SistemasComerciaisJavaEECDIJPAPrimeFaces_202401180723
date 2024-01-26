@@ -28,8 +28,7 @@ public class Teste01MB {
 	}
 
 	private String nome;
-	private String sexo;
-	private String estadoCivil;
+	private List<String> interesses;
 
 	public String getNome() {
 		return nome;
@@ -39,25 +38,18 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
-	public String getSexo() {
-		return sexo;
+	public List<String> getInteresses() {
+		return interesses;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public String getEstadoCivil() {
-		return estadoCivil;
-	}
-
-	public void setEstadoCivil(String estadoCivil) {
-		this.estadoCivil = estadoCivil;
+	public void setInteresses(List<String> interesses) {
+		this.interesses = interesses;
 	}
 
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "][this.sexo=" + this.sexo + "][this.estadoCivil=" + this.estadoCivil + "]");
+		System.out.println("[this.nome=" + this.nome + "]");
+		this.interesses.forEach(System.out::println);
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
 	}
