@@ -28,6 +28,8 @@ public class Teste01MB {
 	}
 
 	private String nome;
+	private String sexo;
+	private String estadoCivil;
 
 	public String getNome() {
 		return nome;
@@ -37,9 +39,25 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getEstadoCivil() {
+		return estadoCivil;
+	}
+
+	public void setEstadoCivil(String estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
+
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "]");
+		System.out.println("[this.nome=" + this.nome + "][this.sexo=" + this.sexo + "][this.estadoCivil=" + this.estadoCivil + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
 	}
