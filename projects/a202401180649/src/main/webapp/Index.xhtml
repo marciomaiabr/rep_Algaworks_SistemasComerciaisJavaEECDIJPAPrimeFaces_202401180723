@@ -24,18 +24,6 @@
 				<p:outputLabel value="Nome:" for="nome" />
 				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
 
-				<p:outputLabel value="Estado:" for="estado" />
-				<p:selectOneMenu id="estado" value="#{teste01MB.estado}" required="true" >
-					<p:ajax process="@this" update="cidade" listener="#{teste01MB.carregarCidades}" />
-					<f:selectItems value="#{teste01MB.estados}" var="e" itemLabel="#{e}" itemValue="#{e}" />
-				</p:selectOneMenu>
-
-				<p:outputLabel value="Cidade:" for="cidade" />
-				<p:selectOneMenu id="cidade" value="#{teste01MB.cidade}" required="true" >
-					<f:selectItem itemLabel="Selecione uma cidade..." />
-					<f:selectItems value="#{teste01MB.cidades}" var="c" itemLabel="#{c}" itemValue="#{c}" />
-				</p:selectOneMenu>
-
 			</p:panelGrid>
 
 			<p><p:commandButton value="Atualizar..." action="#{teste01MB.atualizar}" update="@form" /></p>
