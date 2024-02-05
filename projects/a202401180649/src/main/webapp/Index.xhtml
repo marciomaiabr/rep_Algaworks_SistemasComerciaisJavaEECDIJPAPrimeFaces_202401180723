@@ -24,13 +24,13 @@
 				<p:outputLabel value="Nome:" for="nome" />
 				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
 
-				<p:outputLabel value="Interesses:" for="interesses" />
-				<p:selectManyCheckbox id="interesses" value="#{teste01MB.interesses}" required="true" layout="pageDirection" >
-					<f:selectItem itemLabel="Cinema" itemValue="1" />
-					<f:selectItem itemLabel="Computadores" itemValue="2" />
-					<f:selectItem itemLabel="Programação" itemValue="3" />
-					<f:selectItem itemLabel="Leitura" itemValue="4" />
-				</p:selectManyCheckbox>
+				<p:outputLabel value="País:" for="pais" />
+				<p:autoComplete id="pais" value="#{teste01MB.pais}" required="true"
+					completeMethod="#{teste01MB.sugerirPaises}"
+					forceSelection="true"
+					minQueryLength="3"
+					dropdown="true"
+				/>
 
 			</p:panelGrid>
 

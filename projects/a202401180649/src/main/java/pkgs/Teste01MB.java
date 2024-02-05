@@ -14,6 +14,8 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class Teste01MB {
 
+	private List<String> paises = new ArrayList<>();
+
 	public Teste01MB() {
 		System.out.println("Teste01MB.Teste01MB()");
 	}
@@ -21,6 +23,17 @@ public class Teste01MB {
 	@PostConstruct
 	public void postConstruct() {
 		System.out.println("Teste01MB.postConstruct()");
+		paises.add("Alemanha");
+		paises.add("Argélia");
+		paises.add("Argentina");
+		paises.add("Belgica");
+		paises.add("Bélgica2");
+		paises.add("Bolivia");
+		paises.add("Brasil");
+		paises.add("brasil2");
+		paises.add("Bulgaria");
+		paises.add("Espanha");
+		paises.add("Estados Unidos");
 	}
 
 	public String getMBVersion() {
@@ -28,7 +41,7 @@ public class Teste01MB {
 	}
 
 	private String nome;
-	private List<String> interesses;
+	private String pais;
 
 	public String getNome() {
 		return nome;
@@ -38,20 +51,33 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
-	public List<String> getInteresses() {
-		return interesses;
+	public String getPais() {
+		return pais;
 	}
 
-	public void setInteresses(List<String> interesses) {
-		this.interesses = interesses;
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "]");
-		this.interesses.forEach(System.out::println);
+		System.out.println("[this.nome=" + this.nome + "][this.pais=" + this.pais + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
+	}
+
+	public List<String> sugerirPaises(String query) {
+		System.out.println("Teste01MB.sugerirPaises()");
+		System.out.println("[this.nome=" + this.nome + "][this.pais=" + this.pais + "][query=" + query + "]");
+
+		List<String> paisSugerido = new ArrayList<>();
+
+		for(String pais : paises) {
+			if(pais.toUpperCase().startsWith(query.toUpperCase()))
+				paisSugerido.add(pais);
+		}
+
+		return paisSugerido;
 	}
 
 	@PreDestroy
