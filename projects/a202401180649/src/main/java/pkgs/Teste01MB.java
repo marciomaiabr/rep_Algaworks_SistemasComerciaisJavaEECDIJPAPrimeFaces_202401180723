@@ -15,19 +15,6 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class Teste01MB {
 
-	public static final List<Pais> PAISES = new ArrayList<>();
-	static {
-		PAISES.add(new Pais(1, "Alemanha"));
-		PAISES.add(new Pais(2, "Argélia"));
-		PAISES.add(new Pais(3, "Argentina"));
-		PAISES.add(new Pais(4, "Bélgica"));
-		PAISES.add(new Pais(5, "Bolívia"));
-		PAISES.add(new Pais(6, "Brasil"));
-		PAISES.add(new Pais(7, "Bulgaria"));
-		PAISES.add(new Pais(8, "Espanha"));
-		PAISES.add(new Pais(9, "Estados Unidos"));
-	}
-
 	public Teste01MB() {
 		System.out.println("Teste01MB.Teste01MB()");
 	}
@@ -42,7 +29,9 @@ public class Teste01MB {
 	}
 
 	private String nome;
-	private Pais pais;
+	private String telefone;
+	private String telefoneComercial;
+	private String matricula;
 
 	public String getNome() {
 		return nome;
@@ -52,32 +41,35 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
-	public Pais getPais() {
-		return pais;
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public void setPais(Pais pais) {
-		this.pais = pais;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getTelefoneComercial() {
+		return telefoneComercial;
+	}
+
+	public void setTelefoneComercial(String telefoneComercial) {
+		this.telefoneComercial = telefoneComercial;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "][this.pais=" + this.pais + "]");
+		System.out.println("[this.nome=" + this.nome + "][this.telefone=" + this.telefone + "][this.telefoneComercial=" + this.telefoneComercial + "][this.matricula=" + this.matricula + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
-	}
-
-	public List<Pais> sugerirPaises(String consulta) {
-		System.out.println("Teste01MB.sugerirPaises()");
-
-		List<Pais> paisesSugeridos = new ArrayList<>();
-		for(Pais pais : PAISES) {
-			if(pais.getNome().toUpperCase().startsWith(consulta.toUpperCase())) {
-				paisesSugeridos.add(pais);
-			}
-		}
-
-		return paisesSugeridos;
 	}
 
 	@PreDestroy

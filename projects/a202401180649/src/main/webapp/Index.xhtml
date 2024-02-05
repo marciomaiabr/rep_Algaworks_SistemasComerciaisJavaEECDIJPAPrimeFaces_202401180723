@@ -13,6 +13,9 @@
 	</h:head>
 	<h:body>
 
+		<p>caractere "?" na máscara para definir conteúdo opcional não é mais utilizado agora coloca-se ente colchetes "[]"</p>
+		<p>atributo placeHolder que era para definir o caractere q iria aparecer na máscara não é mais agora tem o atributo slotChar</p>
+
 		<h:form id="frm">
 
 			<p:messages >
@@ -24,10 +27,17 @@
 				<p:outputLabel value="Nome:" for="nome" />
 				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
 
-				<p:outputLabel value="País:" for="pais" />
-				<p:autoComplete id="pais" value="#{teste01MB.pais}"
-				completeMethod="#{teste01MB.sugerirPaises}" forceSelection="true"
-				var="p" itemLabel="#{p.nome}" itemValue="#{p}" />
+				<p:outputLabel value="Telefone:" for="telefone" />
+				<p:inputMask id="telefone" value="#{teste01MB.telefone}" required="true"
+				mask="(99) 9999-9999" />
+
+				<p:outputLabel value="Telefone Comercial:" for="telefoneComercial" />
+				<p:inputMask id="telefoneComercial" value="#{teste01MB.telefoneComercial}" required="true"
+				mask="(99) 9999-9999[ x9999]" />
+
+				<p:outputLabel value="Matricula:" for="matricula" />
+				<p:inputMask id="matricula" value="#{teste01MB.matricula}" required="true"
+				mask="aaa*-9999" slotChar="?" />
 
 			</p:panelGrid>
 
