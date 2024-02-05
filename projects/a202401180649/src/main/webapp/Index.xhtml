@@ -19,18 +19,22 @@
 				<p:autoUpdate />
 			</p:messages>
 
+			<br />
+			<br />
+			<br />
+
+    <span class="ui-float-label">
+       <p:inputText id="float-input" value="#{inputTextView.text}"/>
+       <p:outputLabel for="@previous" value="Username"/>
+   </span>
+
+			<br />
+
 			<p:panelGrid columns="2" >
 
-				<p:outputLabel value="Nome:" for="nome" />
-				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
-
-				<p:outputLabel value="País:" for="pais" />
-				<p:autoComplete id="pais" value="#{teste01MB.pais}" required="true"
-					completeMethod="#{teste01MB.sugerirPaises}"
-					forceSelection="true"
-					minQueryLength="3"
-					dropdown="true"
-				/>
+                <p:outputLabel for="mask" value="Mask"/>
+                <p:datePicker id="mask" value="#{teste01MB.date14}" pattern="dd/MM/yyyy"
+                                showButtonBar="true" mask="true"/>
 
 			</p:panelGrid>
 
