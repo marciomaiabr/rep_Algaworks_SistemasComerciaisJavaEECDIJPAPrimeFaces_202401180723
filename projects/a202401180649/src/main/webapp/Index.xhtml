@@ -24,18 +24,18 @@
 
 			<p:panelGrid columns="2" >
 
-				<p:outputLabel value="Nome:" for="nome" />
+				<p:outputLabel value="Nome:" for="@next" />
 				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
 
-				<p:outputLabel value="Telefone:" for="telefone" />
+				<p:outputLabel value="Telefone:" for="@next" />
 				<p:inputMask id="telefone" value="#{teste01MB.telefone}" required="true"
 				mask="(99) 9999-9999" />
 
-				<p:outputLabel value="Telefone Comercial:" for="telefoneComercial" />
+				<p:outputLabel value="Telefone Comercial:" for="@next" />
 				<p:inputMask id="telefoneComercial" value="#{teste01MB.telefoneComercial}" required="true"
 				mask="(99) 9999-9999[ x9999]" />
 
-				<p:outputLabel value="Matricula:" for="matricula" />
+				<p:outputLabel value="Matricula:" for="@next" />
 				<p:inputMask id="matricula" value="#{teste01MB.matricula}" required="true"
 				mask="aaa*-9999" slotChar="?" />
 
