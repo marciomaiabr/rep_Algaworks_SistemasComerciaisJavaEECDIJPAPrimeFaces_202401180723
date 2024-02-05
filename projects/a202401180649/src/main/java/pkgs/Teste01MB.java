@@ -29,9 +29,7 @@ public class Teste01MB {
 	}
 
 	private String nome;
-	private String telefone;
-	private String telefoneComercial;
-	private String matricula;
+	private Boolean aceito;
 
 	public String getNome() {
 		return nome;
@@ -41,33 +39,17 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public Boolean getAceito() {
+		return aceito;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getTelefoneComercial() {
-		return telefoneComercial;
-	}
-
-	public void setTelefoneComercial(String telefoneComercial) {
-		this.telefoneComercial = telefoneComercial;
-	}
-
-	public String getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+	public void setAceito(Boolean aceito) {
+		this.aceito = aceito;
 	}
 
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "][this.telefone=" + this.telefone + "][this.telefoneComercial=" + this.telefoneComercial + "][this.matricula=" + this.matricula + "]");
+		System.out.println("[this.nome=" + this.nome + "][this.aceito=" + this.aceito + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
 	}
