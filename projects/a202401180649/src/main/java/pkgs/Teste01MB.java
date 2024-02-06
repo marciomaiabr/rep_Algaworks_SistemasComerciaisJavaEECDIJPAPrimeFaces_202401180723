@@ -1,6 +1,5 @@
 package pkgs;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -44,12 +43,6 @@ public class Teste01MB {
 		System.out.println("[this.nome=" + this.nome + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
-	}
-
-	public String getHoraAtual() {
-		System.out.println("Teste01MB.getHoraAtual()");
-
-		return LocalDateTime.now().toString();
 	}
 
 	@PreDestroy
