@@ -15,7 +15,8 @@
 
 		<h:form id="frm">
 
-			<p:dataTable value="#{teste01MB.funcionarios}" var="funcionario" allowUnsorting="true" sortMode="single" >
+			<p:dataTable value="#{teste01MB.funcionarios}" var="funcionario" allowUnsorting="true" sortMode="single"
+			paginator="true" rows="10" paginatorPosition="top" rowsPerPageTemplate="10, 20, 30" >
 				<p:column headerText="Matrícula" sortBy="#{funcionario.matricula}">
 					<h:outputText value="#{funcionario.matricula}" />
 				</p:column>
