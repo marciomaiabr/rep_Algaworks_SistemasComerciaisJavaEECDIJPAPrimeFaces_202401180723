@@ -15,24 +15,52 @@
 
 		<h:form id="frm">
 
-			<p:messages >
-				<p:autoUpdate />
-			</p:messages>
+			<p:tabView activeIndex="0" orientation="bottom" effect="fade" effectDuration="slow">
+				<p:tab title="Dados Pessoais">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Nome:" for="@next" />
+						<p:inputText />
 
-			<p:panelGrid columns="2" >
+						<p:outputLabel value="E-mail:" for="@next" />
+						<p:inputText />
 
-				<p:outputLabel value="Nome:" for="@next" />
-				<p:inputText id="nome" value="#{teste01MB.nome}" required="true" />
+						<p:outputLabel value="Telefone:" for="@next" />
+						<p:inputText />
+					</p:panelGrid>
+				</p:tab>
+				<p:tab title="Endereço">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Logradouro:" for="@next" />
+						<p:inputText />
 
-				<h:outputText />
-				<h:panelGroup>
-					<p:selectBooleanCheckbox id="aceito" value="#{teste01MB.aceito}" itemLabel="Aceito os termos de serviço..." />
-				</h:panelGroup>
+						<p:outputLabel value="Número:" for="@next" />
+						<p:inputText />
 
-			</p:panelGrid>
+						<p:outputLabel value="Bairro:" for="@next" />
+						<p:inputText />
 
-			<p><p:commandButton value="Atualizar..." action="#{teste01MB.atualizar}" update="@form" /></p>
+						<p:outputLabel value="Cidade:" for="@next" />
+						<p:inputText />
+					</p:panelGrid>
+				</p:tab>
+				<p:tab title="Conta Corrente" disabled="true" >
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Banco:" for="@next" />
+						<p:inputText />
+
+						<p:outputLabel value="Agência:" for="@next" />
+						<p:inputText />
+
+						<p:outputLabel value="Conta:" for="@next" />
+						<p:inputText />
+
+						<p:outputLabel value="Tipo:" for="@next" />
+						<p:inputText />
+					</p:panelGrid>
+				</p:tab>
+			</p:tabView>
 
 		</h:form>
+
 	</h:body>
 </html>
