@@ -1,5 +1,6 @@
 package pkgs;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +14,9 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @ViewScoped
-public class Teste01MB {
+public class Teste01MB implements Serializable {
+
+	private static final long serialVersionUID = -7424888261504715069L;
 
 	public Teste01MB() {
 		System.out.println("Teste01MB.Teste01MB()");
