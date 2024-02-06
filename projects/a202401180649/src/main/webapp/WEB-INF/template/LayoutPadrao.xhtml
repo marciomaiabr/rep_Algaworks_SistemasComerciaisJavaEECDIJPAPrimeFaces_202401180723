@@ -13,11 +13,12 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title><ui:insert name="titulo">Sistema de pedidos de venda</ui:insert></title>
 		<h:outputStylesheet library="css" name="sistema.css" />
+		<h:outputScript library="js" name="jquery.maskMoney.js" />
 	</h:head>
 
 	<h:body>
 
-		<p:ajaxStatus>
+		<p:ajaxStatus styleClass="ajax-status" onsuccess="configuraMoeda();" >
 			<f:facet name="start">
 				<h:graphicImage library="images" name="loading.gif" />
 			</f:facet>
@@ -46,6 +47,16 @@
 			Curso Online de Sistemas Comerciais Java EE com CDI, JPA e PrimeFaces -
 			<a href="http://bit.ly/Y8saFl" target="_blank">www.algaworks.com</a>
 		</footer>
+
+		<script>
+			function configuraMoeda(){
+				$(".moeda").maskMoney( { decimal : "," , thousands : "." , allowZero : true } );
+			}
+			$($(document).ready(function(){
+				configuraMoeda();
+			}));
+		</script>
+
 	</h:body>
 
 </html>
