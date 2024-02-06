@@ -15,7 +15,7 @@
 
 		<h:form id="frm">
 
-			<p:tabView activeIndex="0" orientation="bottom" effect="fade" effectDuration="slow">
+			<p:tabView activeIndex="0" orientation="bottom" effect="fade" effectDuration="slow" dynamic="true" cache="false">
 				<p:tab title="Dados Pessoais">
 					<p:panelGrid columns="2">
 						<p:outputLabel value="Nome:" for="@next" />
@@ -57,6 +57,9 @@
 						<p:outputLabel value="Tipo:" for="@next" />
 						<p:inputText />
 					</p:panelGrid>
+				</p:tab>
+				<p:tab title="Hora atual" >
+					<h:outputText value="#{teste01MB.horaAtual}" />
 				</p:tab>
 			</p:tabView>
 

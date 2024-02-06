@@ -1,5 +1,6 @@
 package pkgs;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -29,7 +30,6 @@ public class Teste01MB {
 	}
 
 	private String nome;
-	private Boolean aceito;
 
 	public String getNome() {
 		return nome;
@@ -39,19 +39,17 @@ public class Teste01MB {
 		this.nome = nome;
 	}
 
-	public Boolean getAceito() {
-		return aceito;
-	}
-
-	public void setAceito(Boolean aceito) {
-		this.aceito = aceito;
-	}
-
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
-		System.out.println("[this.nome=" + this.nome + "][this.aceito=" + this.aceito + "]");
+		System.out.println("[this.nome=" + this.nome + "]");
 
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado !"));
+	}
+
+	public String getHoraAtual() {
+		System.out.println("Teste01MB.getHoraAtual()");
+
+		return LocalDateTime.now().toString();
 	}
 
 	@PreDestroy
