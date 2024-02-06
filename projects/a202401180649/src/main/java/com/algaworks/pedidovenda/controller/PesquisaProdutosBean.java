@@ -11,10 +11,10 @@ import javax.faces.bean.RequestScoped;
 public class PesquisaProdutosBean {
 
 	private List<Integer> produtosFiltrados;
-
+	
 	public PesquisaProdutosBean() {
 		produtosFiltrados = new ArrayList<>();
-		for(int i = 0; i < 50; i++) {
+		for (int i = 0; i < 50; i++) {
 			produtosFiltrados.add(i);
 		}
 	}
@@ -22,5 +22,5 @@ public class PesquisaProdutosBean {
 	public List<Integer> getProdutosFiltrados() {
 		return produtosFiltrados;
 	}
-
+	
 }

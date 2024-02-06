@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html>
-<html lang="pt"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
-	    <meta charset="utf-8" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title><ui:insert name="titulo">Sistema de pedidos de venda</ui:insert></title>
-		<h:outputStylesheet library="css" name="sistema.css" />
-		<h:outputScript library="js" name="jquery.maskMoney.js" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="titulo">Sistema de Pedidos de Venda</ui:insert></title>
+        <h:outputStylesheet library="css" name="sistema.css" />
+        <h:outputScript library="js" name="jquery.maskMoney.js"/>
 	</h:head>
 
 	<h:body>
-
-		<p:ajaxStatus styleClass="ajax-status" onsuccess="configuraMoeda();" >
+		<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()">
 			<f:facet name="start">
-				<h:graphicImage library="images" name="loading.gif" />
+				<h:graphicImage library="images" name="loading.gif"/>
 			</f:facet>
 			<f:facet name="complete">
-				<h:outputText value="" />
+				<h:outputText value=""/>
 			</f:facet>
 		</p:ajaxStatus>
-
+	
 		<header>
 			<div>
 				<h:link>
@@ -36,27 +32,25 @@
 		</header>
 
 		<div id="conteudo">
-			<ui:insert name="corpo">
-				<br /><br /><br />Seja bem vindo !!!<br /><br /><br />
-			</ui:insert>
+			<ui:insert name="corpo"/>
 		</div>
-	
-		<p:separator />
-	
+		
+		<p:separator style="margin-top: 20px"/>
+		
 		<footer>
 			Curso Online de Sistemas Comerciais Java EE com CDI, JPA e PrimeFaces -
 			<a href="http://bit.ly/Y8saFl" target="_blank">www.algaworks.com</a>
 		</footer>
-
+		
 		<script>
-			function configuraMoeda(){
-				$(".moeda").maskMoney( { decimal : "," , thousands : "." , allowZero : true } );
+			function configurarMoeda() {
+				$(".moeda").maskMoney({ decimal: ",", thousands: ".", allowZero: true });
 			}
-			$($(document).ready(function(){
-				configuraMoeda();
-			}));
+			
+			$(document).ready(function() {
+				configurarMoeda();
+			});
 		</script>
-
 	</h:body>
-
+	
 </html>
