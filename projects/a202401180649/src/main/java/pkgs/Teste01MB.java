@@ -105,6 +105,7 @@ public class Teste01MB implements Serializable {
 		}
 
 		public List<Funcionario> getFuncionarios() {
+			System.out.println("Teste01MB.getFuncionarios()");
 			return funcionarios;
 		}
 

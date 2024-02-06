@@ -15,20 +15,20 @@
 
 		<h:form id="frm">
 
-			<p:dataTable value="#{teste01MB.funcionarios}" var="funcionarios">
-				<p:column headerText="Matrícula">
-					<h:outputText value="#{funcionarios.matricula}" />
+			<p:dataTable value="#{teste01MB.funcionarios}" var="funcionario" allowUnsorting="true" sortMode="single" >
+				<p:column headerText="Matrícula" sortBy="#{funcionario.matricula}">
+					<h:outputText value="#{funcionario.matricula}" />
 				</p:column>
-				<p:column headerText="Nome">
-					<h:outputText value="#{funcionarios.nome}" />
+				<p:column headerText="Nome" sortBy="#{funcionario.nome}">
+					<h:outputText value="#{funcionario.nome}" />
 				</p:column>
-				<p:column headerText="Data Admissao">
-					<h:outputText value="#{funcionarios.dataAdmissao}" >
+				<p:column headerText="Data Admissao" sortBy="#{funcionario.dataAdmissao}">
+					<h:outputText value="#{funcionario.dataAdmissao}" >
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
-				<p:column headerText="Salário">
-					<h:outputText value="#{funcionarios.salario}" >
+				<p:column headerText="Salário" sortBy="#{funcionario.salario}">
+					<h:outputText value="#{funcionario.salario}" >
 						<f:convertNumber type="currency" locale="pt_BR" />
 					</h:outputText>
 				</p:column>
