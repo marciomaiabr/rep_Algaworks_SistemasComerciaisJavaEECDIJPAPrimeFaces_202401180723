@@ -15,53 +15,24 @@
 
 		<h:form id="frm">
 
-			<p:tabView activeIndex="0" orientation="bottom" effect="fade" effectDuration="slow" dynamic="true" cache="false">
-				<p:tab title="Dados Pessoais">
-					<p:panelGrid columns="2">
-						<p:outputLabel value="Nome:" for="@next" />
-						<p:inputText />
-
-						<p:outputLabel value="E-mail:" for="@next" />
-						<p:inputText />
-
-						<p:outputLabel value="Telefone:" for="@next" />
-						<p:inputText />
-					</p:panelGrid>
-				</p:tab>
-				<p:tab title="Endereço">
-					<p:panelGrid columns="2">
-						<p:outputLabel value="Logradouro:" for="@next" />
-						<p:inputText />
-
-						<p:outputLabel value="Número:" for="@next" />
-						<p:inputText />
-
-						<p:outputLabel value="Bairro:" for="@next" />
-						<p:inputText />
-
-						<p:outputLabel value="Cidade:" for="@next" />
-						<p:inputText />
-					</p:panelGrid>
-				</p:tab>
-				<p:tab title="Conta Corrente" disabled="true" >
-					<p:panelGrid columns="2">
-						<p:outputLabel value="Banco:" for="@next" />
-						<p:inputText />
-
-						<p:outputLabel value="Agência:" for="@next" />
-						<p:inputText />
-
-						<p:outputLabel value="Conta:" for="@next" />
-						<p:inputText />
-
-						<p:outputLabel value="Tipo:" for="@next" />
-						<p:inputText />
-					</p:panelGrid>
-				</p:tab>
-				<p:tab title="Hora atual" >
-					<h:outputText value="#{teste01MB.horaAtual}" />
-				</p:tab>
-			</p:tabView>
+			<p:dataTable value="#{teste01MB.funcionarios}" var="funcionarios">
+				<p:column headerText="Matrícula">
+					<h:outputText value="#{funcionarios.matricula}" />
+				</p:column>
+				<p:column headerText="Nome">
+					<h:outputText value="#{funcionarios.nome}" />
+				</p:column>
+				<p:column headerText="Data Admissao">
+					<h:outputText value="#{funcionarios.dataAdmissao}" >
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Salário">
+					<h:outputText value="#{funcionarios.salario}" >
+						<f:convertNumber type="currency" locale="pt_BR" />
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
 
 		</h:form>
 
