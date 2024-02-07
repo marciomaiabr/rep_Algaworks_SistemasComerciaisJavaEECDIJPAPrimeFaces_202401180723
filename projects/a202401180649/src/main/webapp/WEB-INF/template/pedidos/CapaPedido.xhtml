@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<p:panelGrid columns="4">
+
+		<p:outputLabel value="Número" />
+		<h:outputText value="123" />
+
+		<p:outputLabel value="Data de criação" />
+		<h:outputText value="20/11/2023" />
+
+		<p:outputLabel value="Status" />
+		<p:outputLabel value="Orçamento" />
+
+		<p:outputLabel value="Vendedor" />
+		<p:selectOneMenu>
+			<f:selectItem itemLabel="Selecione" />
+			<f:selectItem itemLabel="João das couves júnior" />
+		</p:selectOneMenu>
+
+		<p:outputLabel value="Cliente" />
+		<p:autoComplete id="cliente" size="20" dropdown="true" />
+
+		<p:outputLabel value="Forma de pagamento" />
+		<p:selectOneMenu>
+			<f:selectItem itemLabel="Selecione" />
+			<f:selectItem itemLabel="Cartão de crédito" />
+		</p:selectOneMenu>
+
+		<p:outputLabel value="Valor do frete" />
+		<p:inputText />
+
+		<p:outputLabel value="Subtotal" />
+		<p:inputText />
+
+		<p:outputLabel value="Valor de desconto" />
+		<p:inputText />
+
+		<p:outputLabel value="Total do pedido" />
+		<p:inputText />
+
+	</p:panelGrid>
+
+</ui:composition>
