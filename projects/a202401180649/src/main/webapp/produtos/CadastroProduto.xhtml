@@ -14,7 +14,7 @@
 	    	<p:toolbar style="margin-top: 20px">
 	    		<p:toolbarGroup>
 	    			<p:button value="Novo" outcome="/produtos/CadastroProduto"/>
-	    			<p:commandButton value="Salvar" id="botaoSalvar"/>
+	    			<p:commandButton value="Salvar" id="botaoSalvar" action="#{cadastroProdutosBean.salvar}"/>
 	    		</p:toolbarGroup>
 	    		<p:toolbarGroup align="right">
 	    			<p:button value="Pesquisa" outcome="/produtos/PesquisaProdutos" />
@@ -39,8 +39,8 @@
 	    			<f:selectItem itemLabel="Selecione a subcategoria"/>
 	    		</p:selectOneMenu>
 	    		
-	    		<p:outputLabel value="Valor unitário" for="valorUnitario"/>
-	    		<p:inputText id="valorUnitario" size="10" maxlength="10" styleClass="moeda"/>
+	    		<p:outputLabel value="Valor unitário" for="inputNumberValorUnitario"/>
+	    		<p:inputNumber id="inputNumberValorUnitario" value="#{cadastroProdutosBean.vu}" decimalSeparator="," thousandSeparator="." symbol="R$ "/>
 	    		
 	    		<p:outputLabel value="Estoque" for="estoque"/>
 	    		<p:inputText id="estoque" size="10" maxlength="4"/>
