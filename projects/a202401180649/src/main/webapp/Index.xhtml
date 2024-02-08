@@ -13,13 +13,37 @@
 	</h:head>
 	<h:body>
 
+		<script>
+			function tratarInclusaoProduto(args){
+				console.log(args);
+				if(!args.validationFailed){
+					PF('inclusaoProdutoDialog').hide();
+				}
+			}
+		</script>
+
 		<h:form id="frm">
 
-			<p:button value="Exibir..." onclick="PF('meuDialogo').show(); return false;" />
-			<p:button value="Ocultar..." onclick="PF('meuDialogo').hide(); return false;" />
+			<p:button value="Adicionar Produto" onclick="PF('inclusaoProdutoDialog').show(); return false;" />
 
-			<p:dialog header="Meu diálogo" widgetVar="meuDialogo" modal="true" showEffect="shake" hideEffect="explode" >
-				Conteúdo do diálogo...
+			<p:dataTable id="produtosTable" value="#{teste01MB.produtos}" var="produto" emptyMessage="Não existem produtos">
+				<p:column title="Tabela de produtos" headerText="Descrição" >
+					<h:outputText value="#{produto}" />
+				</p:column>
+			</p:dataTable>
+
+			<p:dialog header="Inclusão de produto" widgetVar="inclusaoProdutoDialog" modal="true">
+				<h:panelGroup id="inclusaoPanel">
+					<p:messages />
+
+					<h:panelGrid columns="2">
+						<p:outputLabel value="Name" />
+						<p:inputText value="#{teste01MB.nomeProduto}" required="true" requiredMessage="Informe o nome do produto" />
+					</h:panelGrid>
+
+					<p:commandButton value="Incluir" action="#{teste01MB.incluirProduto}" update="produtosTable inclusaoPanel"
+					oncomplete="tratarInclusaoProduto(args)" />
+				</h:panelGroup>
 			</p:dialog>
 
 		</h:form>

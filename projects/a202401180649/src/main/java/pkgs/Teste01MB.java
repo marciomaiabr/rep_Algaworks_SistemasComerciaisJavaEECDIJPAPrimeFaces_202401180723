@@ -21,6 +21,9 @@ public class Teste01MB implements Serializable {
 
 	private static final long serialVersionUID = -7424888261504715069L;
 
+	private List<String> produtos = new ArrayList<>();
+	private String nomeProduto;
+
 	public Teste01MB() {
 		System.out.println("Teste01MB.Teste01MB()");
 	}
@@ -32,6 +35,24 @@ public class Teste01MB implements Serializable {
 
 	public String getMBVersion() {
 		return "20240118_0809";
+	}
+
+	public List<String> getProdutos() {
+		return produtos;
+	}
+
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
+	}
+
+	public void incluirProduto() {
+		System.out.println("Teste01MB.incluirProduto()");
+		produtos.add(nomeProduto);
+		nomeProduto = null;
 	}
 
 	@PreDestroy
