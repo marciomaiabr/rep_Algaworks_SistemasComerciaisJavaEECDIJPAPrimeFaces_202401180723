@@ -15,21 +15,16 @@
 
 		<h:form id="frm">
 
-			<p:menubar autoDisplay="false">
-				<p:submenu label="Cadastros">
-					<p:submenu label="Funcionário">
-						<p:menuitem value="Novo" outcome="NovoFuncionario" />
-						<p:menuitem value="Pesquisa" icon="ui-icon-search" url="https://www.google.com/" />
-					</p:submenu>
-				</p:submenu>
-				<p:submenu label="Perfil">
-					<p:menuitem value="Dados pessoais" />
-					<p:separator />
-					<p:menuitem value="Endereços" />
-					<p:menuitem value="E-mails" />
-				</p:submenu>
-				<p:menuitem value="Sair" />
-			</p:menubar>
+			<p:messages id="msgs" />
+
+			<br />
+
+			<p:outputLabel value="Nome" for="@next" />
+			<p:inputText required="true" />
+
+			<br />
+
+			<p:commandButton value="Enviar..." />
 
 		</h:form>
 
