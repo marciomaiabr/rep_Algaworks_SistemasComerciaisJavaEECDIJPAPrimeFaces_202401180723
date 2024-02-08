@@ -15,21 +15,11 @@
 
 		<h:form id="frm">
 
-			<p:messages id="messages1" for="destino1" >
-				<p:autoUpdate />
-			</p:messages>
+			<p:button value="Exibir..." onclick="PF('meuDialogo').show(); return false;" />
 
-			<p:growl id="growl1" for="destino2" >
-				<p:autoUpdate />
-			</p:growl>
-
-			<br />
-
-			<p:commandButton value="Envia para p:messages" action="#{teste01MB.mtd1}" />
-
-			<br />
-
-			<p:commandButton value="Envia para p:growl" action="#{teste01MB.mtd2}" />
+			<p:dialog header="Meu diálogo" widgetVar="meuDialogo" >
+				Conteúdo do diálogo...
+			</p:dialog>
 
 		</h:form>
 
