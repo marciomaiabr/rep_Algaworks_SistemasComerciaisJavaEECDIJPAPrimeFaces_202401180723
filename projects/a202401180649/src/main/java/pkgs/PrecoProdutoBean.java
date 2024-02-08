@@ -2,7 +2,7 @@ package pkgs;
 
 import javax.inject.Named;
 
-@Named
+@Named("meuBean")
 public class PrecoProdutoBean {
 
 	public double getPreco() {
