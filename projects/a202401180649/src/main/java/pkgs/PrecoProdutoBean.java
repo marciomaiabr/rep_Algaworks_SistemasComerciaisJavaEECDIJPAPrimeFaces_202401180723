@@ -1,12 +1,18 @@
 package pkgs;
 
+import javax.inject.Inject;
 import javax.inject.Named;
+
+import pkgs.service.CalculadoraPreco;
 
 @Named("meuBean")
 public class PrecoProdutoBean {
 
+	@Inject
+	private CalculadoraPreco calculadora;
+
 	public double getPreco() {
-		return 10.45;
+		return calculadora.calculaPreco(12, 44.55);
 	}
 
 }
