@@ -15,18 +15,21 @@
 
 		<h:form id="frm">
 
-			<p:growl id="growl1" >
+			<p:messages id="messages1" for="destino1" >
+				<p:autoUpdate />
+			</p:messages>
+
+			<p:growl id="growl1" for="destino2" >
 				<p:autoUpdate />
 			</p:growl>
 
 			<br />
 
-			<p:outputLabel value="Nome" for="@next" />
-			<p:inputText required="true" />
+			<p:commandButton value="Envia para p:messages" action="#{teste01MB.mtd1}" />
 
 			<br />
 
-			<p:commandButton value="Enviar..." />
+			<p:commandButton value="Envia para p:growl" action="#{teste01MB.mtd2}" />
 
 		</h:form>
 

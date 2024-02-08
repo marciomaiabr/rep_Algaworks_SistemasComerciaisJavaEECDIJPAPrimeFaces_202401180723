@@ -44,6 +44,18 @@ public class Teste01MB implements Serializable {
 		this.nome = nome;
 	}
 
+	public void mtd1() {
+		System.out.println("Teste01MB.mtd1()");
+		
+		FacesContext.getCurrentInstance().addMessage("destino1", new FacesMessage(FacesMessage.SEVERITY_INFO, "desc summary for SEVERITY_INFO", "desc detail for SEVERITY_INFO"));
+	}
+
+	public void mtd2() {
+		System.out.println("Teste01MB.mtd2()");
+		
+		FacesContext.getCurrentInstance().addMessage("destino2", new FacesMessage(FacesMessage.SEVERITY_WARN, "desc summary for SEVERITY_WARN", "desc detail for SEVERITY_WARN"));
+	}
+
 	public void atualizar() {
 		System.out.println("Teste01MB.atualizar()");
 		System.out.println("[this.nome=" + this.nome + "]");
