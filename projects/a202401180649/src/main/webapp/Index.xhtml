@@ -15,9 +15,7 @@
 
 		<h:form id="frm">
 
-			<p:messages id="msgs" >
-				<p:autoUpdate />
-			</p:messages>
+			<p:growl id="growl1" />
 
 			<br />
 
@@ -26,7 +24,7 @@
 
 			<br />
 
-			<p:commandButton value="Enviar..." />
+			<p:commandButton value="Enviar..." update="growl1" />
 
 		</h:form>
 
