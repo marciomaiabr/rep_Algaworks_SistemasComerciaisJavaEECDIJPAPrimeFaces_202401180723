@@ -15,25 +15,21 @@
 
 		<h:form id="frm">
 
-			<p:dataTable value="#{teste01MB.funcionarios}" var="funcionario" allowUnsorting="true" sortMode="single"
-			paginator="true" rows="10" paginatorPosition="top" rowsPerPageTemplate="10, 20, 30" >
-				<p:column headerText="Matrícula" sortBy="#{funcionario.matricula}">
-					<h:outputText value="#{funcionario.matricula}" />
-				</p:column>
-				<p:column headerText="Nome" sortBy="#{funcionario.nome}">
-					<h:outputText value="#{funcionario.nome}" />
-				</p:column>
-				<p:column headerText="Data Admissao" sortBy="#{funcionario.dataAdmissao}">
-					<h:outputText value="#{funcionario.dataAdmissao}" >
-						<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:outputText>
-				</p:column>
-				<p:column headerText="Salário" sortBy="#{funcionario.salario}">
-					<h:outputText value="#{funcionario.salario}" >
-						<f:convertNumber type="currency" locale="pt_BR" />
-					</h:outputText>
-				</p:column>
-			</p:dataTable>
+			<p:menubar autoDisplay="false">
+				<p:submenu label="Cadastros">
+					<p:submenu label="Funcionário">
+						<p:menuitem value="Novo" outcome="NovoFuncionario" />
+						<p:menuitem value="Pesquisa" icon="ui-icon-search" url="https://www.google.com/" />
+					</p:submenu>
+				</p:submenu>
+				<p:submenu label="Perfil">
+					<p:menuitem value="Dados pessoais" />
+					<p:separator />
+					<p:menuitem value="Endereços" />
+					<p:menuitem value="E-mails" />
+				</p:submenu>
+				<p:menuitem value="Sair" />
+			</p:menubar>
 
 		</h:form>
 
