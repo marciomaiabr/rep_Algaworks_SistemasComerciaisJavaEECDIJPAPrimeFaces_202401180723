@@ -23,12 +23,6 @@ public class Teste01MB implements Serializable {
 
 	public Teste01MB() {
 		System.out.println("Teste01MB.Teste01MB()");
-
-		funcionarios = new ArrayList<>();
-		
-		for (int i = 0; i < 50; i++) {
-			adicionarFuncionario();
-		}
 	}
 
 	@PostConstruct
@@ -61,52 +55,5 @@ public class Teste01MB implements Serializable {
 	public void preDestroy() {
 		System.out.println("Teste01MB.preDestroy()");
 	}
-
-
-
-
-
-	private static final String[] nomes = { "João", "Maria", "José", "Eduardo", "Sebastião", "Mariana", "Francisco",
-			"Manoel", "Fernanda", "Gabriela", "Mário", "Marcos" };
-		
-		private static final String[] sobrenomes = { "Souza", "Silva", "Andrade", "Machado", "Júnior", "Albuquerque",
-			"Alencar", "Assis", "Batista", "Camargo", "Coelho", "Costa", "Dias", "Rosa", "Leal", "Lima", "Leite" };
-		
-		private List<Funcionario> funcionarios;
-
-		private void adicionarFuncionario() {
-			String nomeCompleto = getNomeAleatorio() + " " + getSobrenomeAleatorio() + " " + getSobrenomeAleatorio();
-			funcionarios.add(new Funcionario(getMatriculaAleatoria(), nomeCompleto, getDataAleatoria(), 
-					getSalarioAleatorio()));
-		}
-		
-		private BigDecimal getSalarioAleatorio() {
-			return new BigDecimal(1000 + (Math.random() * 29000));
-		}
-		
-		private Long getMatriculaAleatoria() {
-			return (long) (Math.random() * 10000);
-		}
-		
-		private Date getDataAleatoria() {
-			long dezAnosEmMillis = 24 * 60 * 60 * 1000;
-			long periodoSorteadoEmMillis = ((long) (Math.random() * 10 * 365)) * dezAnosEmMillis;
-			return new Date(System.currentTimeMillis() - periodoSorteadoEmMillis);
-		}
-		
-		private String getSobrenomeAleatorio() {
-			int posicao = (int) Math.round(Math.random() * (sobrenomes.length - 1));
-			return sobrenomes[posicao];
-		}
-		
-		private String getNomeAleatorio() {
-			int posicao = (int) Math.round(Math.random() * (nomes.length - 1));
-			return nomes[posicao];
-		}
-
-		public List<Funcionario> getFuncionarios() {
-			System.out.println("Teste01MB.getFuncionarios()");
-			return funcionarios;
-		}
 
 }
