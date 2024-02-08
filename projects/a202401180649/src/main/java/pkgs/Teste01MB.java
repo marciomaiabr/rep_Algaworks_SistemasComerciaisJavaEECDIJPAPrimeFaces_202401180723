@@ -23,6 +23,7 @@ public class Teste01MB implements Serializable {
 
 	private List<String> produtos = new ArrayList<>();
 	private String nomeProduto;
+	private String produtoSelecionado;
 
 	public Teste01MB() {
 		System.out.println("Teste01MB.Teste01MB()");
@@ -31,6 +32,10 @@ public class Teste01MB implements Serializable {
 	@PostConstruct
 	public void postConstruct() {
 		System.out.println("Teste01MB.postConstruct()");
+		produtos.add("Arroz");
+		produtos.add("Feijão");
+		produtos.add("Queijo");
+		produtos.add("Notbook");
 	}
 
 	public String getMBVersion() {
@@ -49,10 +54,23 @@ public class Teste01MB implements Serializable {
 		this.nomeProduto = nomeProduto;
 	}
 
+	public String getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+
+	public void setProdutoSelecionado(String produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
+	}
+
 	public void incluirProduto() {
 		System.out.println("Teste01MB.incluirProduto()");
 		produtos.add(nomeProduto);
 		nomeProduto = null;
+	}
+
+	public void excluirProduto() {
+		System.out.println("Teste01MB.excluirProduto()");
+		produtos.remove(produtoSelecionado);
 	}
 
 	@PreDestroy

@@ -30,6 +30,11 @@
 				<p:column title="Tabela de produtos" headerText="Descrição" >
 					<h:outputText value="#{produto}" />
 				</p:column>
+				<p:column style="text-align:center">
+					<p:commandButton icon="ui-icon-trash" oncomplete="PF('confirmacao').show(); return false;" >
+						<f:setPropertyActionListener value="#{produto}" target="#{teste01MB.produtoSelecionado}" />
+					</p:commandButton>
+				</p:column>
 			</p:dataTable>
 
 			<p:dialog header="Inclusão de produto" widgetVar="inclusaoProdutoDialog" modal="true">
@@ -38,13 +43,18 @@
 
 					<h:panelGrid columns="2">
 						<p:outputLabel value="Name" />
-						<p:inputText value="#{teste01MB.nomeProduto}" required="true" requiredMessage="Informe o nome do produto" />
+						<p:inputText value="#{teste01MB.nomeProduto}" required="false" requiredMessage="Informe o nome do produto" />
 					</h:panelGrid>
 
 					<p:commandButton value="Incluir" action="#{teste01MB.incluirProduto}" update="produtosTable inclusaoPanel"
 					oncomplete="tratarInclusaoProduto(args)" />
 				</h:panelGroup>
 			</p:dialog>
+
+			<p:confirmDialog header="Exclusão de produto" message="Deseja realmente excluír o produto ?" widgetVar="confirmacao">
+				<p:commandButton value="Sim" update="produtosTable" oncomplete="PF('confirmacao').hide()" action="#{teste01MB.excluirProduto}" />
+				<p:button value="Não" onclick="PF('confirmacao').hide(); return false;" />
+			</p:confirmDialog>
 
 		</h:form>
 
