@@ -1,6 +1,7 @@
 package pkgs;
 
 import java.io.Serializable;
+import java.lang.annotation.Annotation;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -15,6 +16,11 @@ public class Teste01MB implements Serializable {
 
 	public Teste01MB() {
 		System.out.println("Teste01MB.Teste01MB()");
+
+		Annotation[] annotations = this.getClass().getAnnotations();
+		for(Annotation annotation : annotations) {
+			System.out.println("     "+"     "+"[annotation="+annotation.annotationType().getName()+"]");
+		}
 	}
 
 	@PostConstruct
