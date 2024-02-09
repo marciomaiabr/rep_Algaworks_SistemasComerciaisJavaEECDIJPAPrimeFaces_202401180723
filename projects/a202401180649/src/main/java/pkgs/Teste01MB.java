@@ -7,16 +7,17 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
 @ViewScoped
 public class Teste01MB implements Serializable {
 
-	private static final long serialVersionUID = 202402090721L;
+	private static final long serialVersionUID = 202402090728L;
 
 	public Teste01MB() {
-		System.out.println("Teste01MB.Teste01MB()[serialVersionUID="+serialVersionUID+"]");
+		System.out.println("Teste01MB.Constructor()["+serialVersionUID+"]["+(((Object)this).toString())+"]");
 
 		Annotation[] annotations = this.getClass().getAnnotations();
 		for(Annotation annotation : annotations) {
@@ -31,12 +32,6 @@ public class Teste01MB implements Serializable {
 
 	public String getMBVersion() {
 		return "20240118_0809";
-	}
-
-	public void finalizarSessao() {
-		System.out.println("Teste01MB.finalizarSessao()");
-		
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 	}
 
 	@PreDestroy
