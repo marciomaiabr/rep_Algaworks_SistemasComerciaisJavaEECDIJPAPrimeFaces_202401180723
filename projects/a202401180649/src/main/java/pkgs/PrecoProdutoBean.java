@@ -21,9 +21,23 @@ public class PrecoProdutoBean implements Serializable {
 
 	// @Inject
 	private CalculadoraPreco calculadora;
-	@Inject
+	/*@Inject
 	public void setCalculadora(CalculadoraPreco calculadora) {
 		System.out.println("PrecoProdutoBean.setCalculadora()["+(((Object)this).toString())+"]");
+		System.out.println("     "+"[calculadora.getClass()="+calculadora.getClass()+"][calculadora="+calculadora+"]");
+		if(this.calculadora != null)
+			System.out.println("     "+"[this.calculadora.getClass()="+this.calculadora.getClass()+"][this.calculadora="+this.calculadora+"]");
+		this.calculadora = calculadora;
+	}*/
+	@Inject
+	public PrecoProdutoBean(CalculadoraPreco calculadora) {
+		System.out.println("PrecoProdutoBean.Constructor(CalculadoraPreco calculadora)["+serialVersionUID+"]["+(((Object)this).toString())+"]");
+
+		Annotation[] annotations = this.getClass().getAnnotations();
+		for(Annotation annotation : annotations) {
+			System.out.println("     "+"     "+"[annotation="+annotation.annotationType().getName()+"]");
+		}
+
 		System.out.println("     "+"[calculadora.getClass()="+calculadora.getClass()+"][calculadora="+calculadora+"]");
 		if(this.calculadora != null)
 			System.out.println("     "+"[this.calculadora.getClass()="+this.calculadora.getClass()+"][this.calculadora="+this.calculadora+"]");
