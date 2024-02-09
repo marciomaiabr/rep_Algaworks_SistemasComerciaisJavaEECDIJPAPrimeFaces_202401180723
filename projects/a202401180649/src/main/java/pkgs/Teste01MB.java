@@ -14,7 +14,7 @@ import javax.faces.context.FacesContext;
 @ViewScoped
 public class Teste01MB implements Serializable {
 
-	private static final long serialVersionUID = 202402090728L;
+	private static final long serialVersionUID = 202402090816L;
 
 	public Teste01MB() {
 		System.out.println("Teste01MB.Constructor()["+serialVersionUID+"]["+(((Object)this).toString())+"]");
@@ -32,6 +32,18 @@ public class Teste01MB implements Serializable {
 
 	public String getMBVersion() {
 		return "20240118_0809";
+	}
+
+	public void finalizarSessao() {
+		System.out.println("Teste01MB.finalizarSessao()");
+
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		externalContext.invalidateSession();
+	    try {
+			externalContext.redirect("https://www.google.com/");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@PreDestroy
