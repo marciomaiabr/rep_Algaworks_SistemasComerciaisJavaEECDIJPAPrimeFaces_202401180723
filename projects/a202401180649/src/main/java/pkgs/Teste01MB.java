@@ -31,4 +31,9 @@ public class Teste01MB implements Serializable {
 		System.out.println("Teste01MB.preDestroy()");
 	}
 
+	@Override
+	public void finalize() {
+		System.out.println("Teste01MB.finalize()");
+	}
+
 }
