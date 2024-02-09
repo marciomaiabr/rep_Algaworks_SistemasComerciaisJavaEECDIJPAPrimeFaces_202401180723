@@ -19,8 +19,16 @@ public class PrecoProdutoBean implements Serializable {
 
 	private static final long serialVersionUID = 202402090823L;
 
-	@Inject
+	// @Inject
 	private CalculadoraPreco calculadora;
+	@Inject
+	public void setCalculadora(CalculadoraPreco calculadora) {
+		System.out.println("PrecoProdutoBean.setCalculadora()["+(((Object)this).toString())+"]");
+		System.out.println("     "+"[calculadora.getClass()="+calculadora.getClass()+"][calculadora="+calculadora+"]");
+		if(this.calculadora != null)
+			System.out.println("     "+"[this.calculadora.getClass()="+this.calculadora.getClass()+"][this.calculadora="+this.calculadora+"]");
+		this.calculadora = calculadora;
+	}
 
 	public PrecoProdutoBean() {
 		System.out.println("PrecoProdutoBean.Constructor()["+serialVersionUID+"]["+(((Object)this).toString())+"]");
