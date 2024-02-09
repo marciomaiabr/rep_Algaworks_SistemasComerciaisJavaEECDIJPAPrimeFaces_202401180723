@@ -28,8 +28,8 @@ public class Teste01MB implements Serializable {
 		System.out.println("Teste01MB.postConstruct()");
 	}
 
-	public String getMBVersion() {
-		return "20240118_0809";
+	public long getserialVersionUID() {
+		return serialVersionUID;
 	}
 
 	@PreDestroy
