@@ -16,13 +16,21 @@
 		<h:form id="frm">
 
 			<br />
-			<h:outputText value="[xhtml=20240210061703]" />
+			<p:outputLabel value="Produto:" for="@next" />
 			<br />
-			<h:outputText value="[teste01Controller.serialversionuid=#{teste01Controller.serialversionuid}]" />
+			<p:inputText value="#{teste01Controller.produto}" />
 			<br />
-			<h:outputText value="[teste01Controller.longTeste01ServiceSerialVersionUID=#{teste01Controller.longTeste01ServiceSerialVersionUID}]" />
+			<p:commandButton value="Adicionar..." action="#{teste01Controller.adicionar}" update="@form" />
 			<br />
-			<h:commandButton value="Apply..." action="#{teste01Controller.applyLongTeste01ServiceSerialVersionUID}" />
+			<h:outputText value="Lista de produtos" />
+			<br />
+			<p:panel id="panel1">
+				<ol>
+					<ui:repeat var="p" value="#{teste01Controller.produtos}">
+						<li><h:outputText value="#{p}" /></li>
+					</ui:repeat>
+				</ol>
+			</p:panel>
 			<br />
 
 		</h:form>
