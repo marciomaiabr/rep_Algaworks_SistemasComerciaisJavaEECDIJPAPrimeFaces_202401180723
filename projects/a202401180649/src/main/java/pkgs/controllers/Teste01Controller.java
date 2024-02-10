@@ -9,6 +9,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pkgs.qualifiers.Teste01Qualifier01;
 import pkgs.services.Teste01Service;
 
 @Named
@@ -17,7 +18,7 @@ public class Teste01Controller implements Serializable {
 
 	private static final long serialVersionUID = 20240210061700L;
 
-	@Inject
+	@Inject @Teste01Qualifier01
 	private Teste01Service teste01Service;
 
 	private long longTeste01ServiceSerialVersionUID;
