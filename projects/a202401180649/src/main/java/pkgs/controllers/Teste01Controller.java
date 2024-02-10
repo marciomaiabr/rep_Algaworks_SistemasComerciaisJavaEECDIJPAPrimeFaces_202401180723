@@ -15,10 +15,12 @@ import pkgs.services.Teste01Service;
 @RequestScoped
 public class Teste01Controller implements Serializable {
 
-	private static final long serialVersionUID = 202402090957L;
+	private static final long serialVersionUID = 20240210061700L;
 
 	@Inject
 	private Teste01Service teste01Service;
+
+	private long longTeste01ServiceSerialVersionUID;
 
 	public Teste01Controller() {
 		System.out.println("Teste01Controller.()[" + serialVersionUID + "][" + (((Object) this).toString()) + "]");
@@ -35,11 +37,15 @@ public class Teste01Controller implements Serializable {
 	}
 
 	public String getSerialversionuid() {
-		return this.getClass().getName()+"-"+serialVersionUID;
+		return this.getClass().getName() + "-" + serialVersionUID;
 	}
 
-	public String getTeste01ServiceSerialversionuid() {
-		return this.teste01Service.getClass().getName()+"-"+this.teste01Service.getSerialversionuid();
+	public long getLongTeste01ServiceSerialVersionUID() {
+		return longTeste01ServiceSerialVersionUID;
+	}
+
+	public void applyLongTeste01ServiceSerialVersionUID() {
+		longTeste01ServiceSerialVersionUID = this.teste01Service.getSerialversionuid();
 	}
 
 	@PreDestroy
