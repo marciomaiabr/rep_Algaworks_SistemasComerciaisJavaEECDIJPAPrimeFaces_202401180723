@@ -8,6 +8,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.inject.Produces;
 
+import pkgs.qualifiers.Teste01Qualifier02;
+
 public class FormatadorData {
 
 	public FormatadorData() {
@@ -23,6 +25,12 @@ public class FormatadorData {
 	public DateFormat formatadorDataBrasil() {
 		System.out.println("FormatadorData.formatadorDataBrasil()[" + (((Object) this).toString()) + "]");
 		return new SimpleDateFormat("dd 'de' MMM 'de' yyyy", new Locale("pt", "BR"));
+	}
+
+	@Produces @Teste01Qualifier02
+	public DateFormat formatadorDataEUA() {
+		System.out.println("FormatadorData.formatadorDataEUA()[" + (((Object) this).toString()) + "]");
+		return new SimpleDateFormat("MMM dd, yyyy", Locale.US);
 	}
 
 	@PreDestroy

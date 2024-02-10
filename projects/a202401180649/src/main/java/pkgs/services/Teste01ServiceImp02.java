@@ -11,6 +11,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import pkgs.qualifiers.Teste01Qualifier01;
+import pkgs.qualifiers.Teste01Qualifier02;
 
 @RequestScoped
 @Teste01Qualifier01
@@ -18,7 +19,7 @@ public class Teste01ServiceImp02 implements Serializable, Teste01Service {
 
 	private static final long serialVersionUID = 20240210062702L;
 
-	@Inject
+	@Inject @Teste01Qualifier02
 	private DateFormat dateFormat;
 
 	public Teste01ServiceImp02() {
