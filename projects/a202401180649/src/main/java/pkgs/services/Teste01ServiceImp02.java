@@ -2,10 +2,13 @@ package pkgs.services;
 
 import java.io.Serializable;
 import java.lang.annotation.Annotation;
+import java.text.DateFormat;
+import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 
 import pkgs.qualifiers.Teste01Qualifier01;
 
@@ -14,6 +17,9 @@ import pkgs.qualifiers.Teste01Qualifier01;
 public class Teste01ServiceImp02 implements Serializable, Teste01Service {
 
 	private static final long serialVersionUID = 20240210062702L;
+
+	@Inject
+	private DateFormat dateFormat;
 
 	public Teste01ServiceImp02() {
 		System.out.println("Teste01ServiceImp02.()[" + serialVersionUID + "][" + (((Object) this).toString()) + "]");
@@ -32,6 +38,7 @@ public class Teste01ServiceImp02 implements Serializable, Teste01Service {
 	@Override
 	public long getSerialversionuid() {
 		System.out.println("Teste01ServiceImp02.getSerialversionuid()");
+		System.out.println("[dateFormat.format(new Date())="+dateFormat.format(new Date())+"]");
 		return serialVersionUID;
 	}
 
