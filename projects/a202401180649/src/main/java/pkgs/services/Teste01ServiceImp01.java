@@ -6,11 +6,13 @@ import java.lang.annotation.Annotation;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Default;
 
 @RequestScoped
+@Default
 public class Teste01ServiceImp01 implements Serializable, Teste01Service {
 
-	private static final long serialVersionUID = 20240210061702L;
+	private static final long serialVersionUID = 20240210062701L;
 
 	public Teste01ServiceImp01() {
 		System.out.println("Teste01ServiceImp01.()[" + serialVersionUID + "][" + (((Object) this).toString()) + "]");
