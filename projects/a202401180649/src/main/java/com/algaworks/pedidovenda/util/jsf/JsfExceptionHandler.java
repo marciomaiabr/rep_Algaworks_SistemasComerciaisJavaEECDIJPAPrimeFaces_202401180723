@@ -42,19 +42,19 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 			
 			Throwable exception = context.getException();
 			NegocioException negocioException = getNegocioException(exception);
-
+			
 			boolean handled = false;
 			
 			try {
 				if (exception instanceof ViewExpiredException) {
 					handled = true;
 					redirect("/");
-				}else if(negocioException != null) {
+				} else if (negocioException != null) {
 					handled = true;
 					FacesUtil.addErrorMessage(negocioException.getMessage());
 				} else {
 					handled = true;
-					log.error("Erro de sistema: "+exception.getMessage(), exception);
+					log.error("Erro de sistema: " + exception.getMessage(), exception);
 					redirect("/Erro.xhtml");
 				}
 			} finally {
@@ -68,14 +68,15 @@ public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 	}
 	
 	private NegocioException getNegocioException(Throwable exception) {
-		if(exception instanceof NegocioException) {
+		if (exception instanceof NegocioException) {
 			return (NegocioException) exception;
-		}else if(exception.getCause() != null) {
+		} else if (exception.getCause() != null) {
 			return getNegocioException(exception.getCause());
 		}
+		
 		return null;
 	}
-
+	
 	private void redirect(String page) {
 		try {
 			FacesContext facesContext = FacesContext.getCurrentInstance();

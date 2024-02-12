@@ -18,12 +18,11 @@ public class CadastroPedidoBean {
 		itens = new ArrayList<>();
 		itens.add(1);
 	}
-
-	public void salvar() {
-		System.out.println("CadastroPedidoBean.salvar()");
-		throw new NegocioException("Pedido não pode ser salvo.");
-	}
 	
+	public void salvar() {
+		throw new NegocioException("Pedido não pode ser salvo, pois ainda não foi implementado.");
+	}
+
 	public List<Integer> getItens() {
 		return itens;
 	}
