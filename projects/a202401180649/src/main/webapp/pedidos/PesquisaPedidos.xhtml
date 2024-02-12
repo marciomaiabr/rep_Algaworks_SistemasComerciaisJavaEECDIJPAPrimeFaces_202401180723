@@ -16,7 +16,7 @@
 	    			<p:commandButton value="Pesquisar" />
 	    		</p:toolbarGroup>
 	    		<p:toolbarGroup align="right">
-	    			<p:button value="Novo" />
+	    			<p:button value="Novo" outcome="/pedidos/CadastroPedido" />
 	    		</p:toolbarGroup>
 	    	</p:toolbar>
 	    	
@@ -24,26 +24,26 @@
 	    			columnClasses="rotulo, campo">
 	    		<p:outputLabel value="Número" />
 	    		<h:panelGroup>
-		    		<p:inputText />
-		    		a
-		    		<p:inputText />
+	    			<p:inputText size="10" />
+	    			a
+	    			<p:inputText size="10" />
 	    		</h:panelGroup>
 	    		
 	    		<p:outputLabel value="Data de criação" />
 	    		<h:panelGroup>
-		    		<p:calendar />
-		    		a
-		    		<p:calendar />
+	    			<p:calendar size="10" pattern="dd/MM/yyyy"/>
+	    			a
+	    			<p:calendar size="10" pattern="dd/MM/yyyy"/>
 	    		</h:panelGroup>
 	    		
 	    		<p:outputLabel value="Vendedor" />
-	    		<p:inputText />
+	    		<p:inputText size="40" />
 	    		
 	    		<p:outputLabel value="Cliente" />
-	    		<p:inputText />
+	    		<p:inputText size="40" />
 	    		
 	    		<p:outputLabel value="Status" />
-	    		<p:selectManyCheckbox >
+	    		<p:selectManyCheckbox>
 	    			<f:selectItem itemLabel="Orçamento" />
 	    			<f:selectItem itemLabel="Emitido" />
 	    			<f:selectItem itemLabel="Cancelado" />
@@ -51,31 +51,31 @@
 	    	</p:panelGrid>
 	    	
 	    	<p:dataTable id="pedidosTable" value="#{pesquisaPedidosBean.pedidosFiltrados}" var="pedido"
-	    		style="margin-top: 20px" emptyMessage="Nenhum pedido encontrado." rows="20"
-	    		paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
+	    		style="margin-top: 20px" emptyMessage="Nenhum pedido encontrado."
+	    		rows="20" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
 	    		<p:column headerText="Número" style="text-align: center; width: 100px">
-	    			<h:outputText value="123" />
+	    			<h:outputText value="12345"/>
 	    		</p:column>
 	    		<p:column headerText="Cliente">
-	    			<h:outputText value="João" />
+	    			<h:outputText value="Supermercado João das Couves"/>
 	    		</p:column>
-	    		<p:column headerText="Vendedor" >
-	    			<h:outputText value="Tadeu"/>
+	    		<p:column headerText="Vendedor">
+	    			<h:outputText value="José Júnior"/>
 	    		</p:column>
-	    		<p:column headerText="Data de criação" >
-	    			<h:outputText value="31/12/2023" />
+	    		<p:column headerText="Data de criação" style="text-align: center; width: 140px">
+	    			<h:outputText value="05/06/2013"/>
 	    		</p:column>
-	    		<p:column headerText="Valor total" >
-	    			<h:outputText value="R$ 1.234,56" />
+	    		<p:column headerText="Valor total" style="text-align: right; width: 120px">
+	    			<h:outputText value="R$ 1.230,44"/>
 	    		</p:column>
-	    		<p:column headerText="Status" >
-	    			<h:outputText value="Emitido" />
+	    		<p:column headerText="Status" style="width: 100px">
+	    			<h:outputText value="Emitido"/>
 	    		</p:column>
-	    		<p:column style="width: 100px; text-align: center">
-	    			<p:button icon="ui-icon-pencil" title="Editar" />
-	    			<p:commandButton icon="ui-icon-trash" title="Excluir" />
+	    		<p:column style="text-align: center; width: 50px">
+	    			<p:button icon="ui-icon-pencil" title="Editar"/>
 	    		</p:column>
 	    	</p:dataTable>
+	    	
     	</h:form>
     </ui:define>
 </ui:composition>

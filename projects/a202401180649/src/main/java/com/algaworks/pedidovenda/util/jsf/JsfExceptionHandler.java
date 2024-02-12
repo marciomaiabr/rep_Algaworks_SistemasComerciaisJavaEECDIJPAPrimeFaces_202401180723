@@ -1,5 +1,6 @@
-package com.algaworks.pedidovenda.exceptions;
+package com.algaworks.pedidovenda.util.jsf;
 
+import java.io.IOException;
 import java.util.Iterator;
 
 import javax.faces.FacesException;
@@ -11,53 +12,52 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.ExceptionQueuedEventContext;
 
-public class JSFExceptionHandler extends ExceptionHandlerWrapper {
+public class JsfExceptionHandler extends ExceptionHandlerWrapper {
 
-	private ExceptionHandler exceptionHandler;
-
-	public JSFExceptionHandler(ExceptionHandler exceptionHandler) {
-		this.exceptionHandler = exceptionHandler;
+	private ExceptionHandler wrapped;
+	
+	public JsfExceptionHandler(ExceptionHandler wrapped) {
+		this.wrapped = wrapped;
 	}
-
+	
 	@Override
 	public ExceptionHandler getWrapped() {
-		System.out.println("JSFExceptionHandler.getWrapped()");
-		return this.exceptionHandler;
+		return this.wrapped;
 	}
-
+	
 	@Override
 	public void handle() throws FacesException {
 		Iterator<ExceptionQueuedEvent> events = getUnhandledExceptionQueuedEvents().iterator();
-		while(events.hasNext()) {
+		 
+		while (events.hasNext()) {
 			ExceptionQueuedEvent event = events.next();
-			ExceptionQueuedEventContext context = (ExceptionQueuedEventContext) event.getContext();
-
-			Throwable throwable = context.getException();
-
+			ExceptionQueuedEventContext context = (ExceptionQueuedEventContext) event.getSource();
+			
+			Throwable exception = context.getException();
+			
 			try {
-				if(throwable instanceof ViewExpiredException) {
-					redirect("/Home.xhtml");
+				if (exception instanceof ViewExpiredException) {
+					redirect("/");
 				}
 			} finally {
 				events.remove();
 			}
-
 		}
-
+		
 		getWrapped().handle();
 	}
-
+	
 	private void redirect(String page) {
 		try {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
 			ExternalContext externalContext = facesContext.getExternalContext();
-			
-			String requestContextPath = externalContext.getRequestContextPath();
-			
-			externalContext.redirect(requestContextPath+page);
+			String contextPath = externalContext.getRequestContextPath();
+	
+			externalContext.redirect(contextPath + page);
 			facesContext.responseComplete();
-		} catch (Exception e) {
+		} catch (IOException e) {
 			throw new FacesException(e);
 		}
 	}
+
 }
