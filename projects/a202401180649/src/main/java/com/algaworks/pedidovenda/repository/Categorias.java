@@ -16,6 +16,7 @@ public class Categorias implements Serializable {
 	EntityManager manager;
 
 	public List<Categoria> raizes(){
+		System.out.println("Categorias.raizes()");
 		return manager.createQuery("from Categoria", Categoria.class).getResultList();
 	}
 
