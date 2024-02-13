@@ -6,7 +6,7 @@ import java.util.List;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
+import javax.validation.constraints.NotNull;
 
 import com.algaworks.pedidovenda.model.Categoria;
 import com.algaworks.pedidovenda.model.Produto;
@@ -22,6 +22,7 @@ public class CadastroProdutoBean implements Serializable {
 	private Categorias categorias;
 
 	private Produto produto;
+	private Categoria categoriaPai;
 	
 	private List<Categoria> categoriasRaizes;
 	
@@ -36,6 +37,8 @@ public class CadastroProdutoBean implements Serializable {
 	}
 	
 	public void salvar() {
+		System.out.println("CadastroProdutoBean.salvar()");
+		System.out.println("[this.categoriaPai.getDescricao()="+this.categoriaPai.getDescricao()+"]");
 	}
 
 	public Produto getProduto() {
@@ -44,6 +47,15 @@ public class CadastroProdutoBean implements Serializable {
 
 	public List<Categoria> getCategoriasRaizes() {
 		return categoriasRaizes;
+	}
+
+	@NotNull
+	public Categoria getCategoriaPai() {
+		return categoriaPai;
+	}
+
+	public void setCategoriaPai(Categoria categoriaPai) {
+		this.categoriaPai = categoriaPai;
 	}
 
 }

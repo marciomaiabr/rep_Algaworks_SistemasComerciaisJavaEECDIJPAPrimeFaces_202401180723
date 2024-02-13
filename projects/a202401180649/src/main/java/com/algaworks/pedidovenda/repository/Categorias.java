@@ -14,6 +14,10 @@ public class Categorias implements Serializable {
 
 	@Inject
 	EntityManager manager;
+	
+	public Categoria porId(Long id) {
+		return manager.find(Categoria.class, id);
+	}
 
 	public List<Categoria> raizes(){
 		System.out.println("Categorias.raizes()");
