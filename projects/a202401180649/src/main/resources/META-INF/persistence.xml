@@ -7,7 +7,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/scma202401120903" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/scma202402130434" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="senharoot" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
