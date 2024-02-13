@@ -18,6 +18,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.algaworks.pedidovenda.validation.SKU;
+
 @Entity
 @Table(name="produto")
 public class Produto implements Serializable {
@@ -52,7 +54,7 @@ public class Produto implements Serializable {
 		this.nome = nome;
 	}
 
-	@NotBlank @Pattern(regexp = "([a-zA-Z]{2}\\d{4,18})?", message = "fora do padrão")
+	@NotBlank @SKU
 	@Column(nullable = false, length = 20, unique = true)
 	public String getSku() {
 		return sku;
